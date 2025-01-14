@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const getPlaces = (setPlaces) => {
-// axios.get('https://places-to-visit-backend-2.onrender.com')
-    axios.get('https://130.61.33.105:8001/')
+axios.get('https://places-to-visit-backend-2.onrender.com')
+    // axios.get('https://130.61.33.105:8001/')
     .then(({ data }) => {
         setPlaces(data)
     })
@@ -12,8 +12,8 @@ export const getPlaces = (setPlaces) => {
 };
 
 export const savePlace = ({name, province, description, image, setName, setProvince, setDescription, setImage, setPlaces}) => {  
-    // axios.post('https://places-to-visit-backend-2.onrender.com/savePlace', 
-    axios.post('https://130.61.33.105:8001/savePlace',
+    axios.post('https://places-to-visit-backend-2.onrender.com/savePlace', 
+    // axios.post('https://130.61.33.105:8001/savePlace',
                {name, province, description, image})
     .then(() => {
 
@@ -30,8 +30,8 @@ export const savePlace = ({name, province, description, image, setName, setProvi
 }
 
 export const editPlace = ({id, name, province, description, image, setName, setProvince, setDescription, setImage, setEdititng, setPlaces}) => {
-// axios.put(`https://places-to-visit-backend-2.onrender.com/editPlace`, 
-axios.put(`https://130.61.33.105:8001/editPlace`, 
+axios.put(`https://places-to-visit-backend-2.onrender.com/editPlace`, 
+// axios.put(`https://130.61.33.105:8001/editPlace`, 
           {_id: id, name, province, description, image})
     .then(({ data }) => {
 
@@ -50,8 +50,8 @@ axios.put(`https://130.61.33.105:8001/editPlace`,
 
 export const deletePlaces = ({id, setPlaces}) => {
     const _id = id; 
-    // axios.delete(`https://places-to-visit-backend-2.onrender.com/deletePlace/${_id}`)
-    axios.delete(`http://130.61.33.105:8001/deletePlace/${_id}`)
+    axios.delete(`https://places-to-visit-backend-2.onrender.com/deletePlace/${_id}`)
+    // axios.delete(`http://130.61.33.105:8001/deletePlace/${_id}`)
         .then(({ data }) => {
             getPlaces(setPlaces)
         })
